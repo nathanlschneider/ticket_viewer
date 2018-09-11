@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+  <meta name="theme-color" content="#454545" />
+  <title>Ticket Viewer v0.4</title>
+  <link rel="stylesheet" type="text/css" href="styles/inline.css">
+  <!-- <link rel="stylesheet" type="text/css" href="styles/auto-complete.min.css"> -->
+  <!-- <link rel="stylesheet" type="text/css" href="styles/card.min.css"> -->
+  <!-- <link rel="stylesheet" type="text/css" href="styles/toolbox.css"> -->
+  <style>
+   .autocomplete-suggestions{text-align:left;cursor:default;border:1px solid #ccc;border-top:0;background:#fff;box-shadow:-1px 1px 3px rgba(0,0,0,.1);position:absolute;display:none;z-index:9999;max-height:254px;overflow:hidden;overflow-y:auto;box-sizing:border-box}.autocomplete-suggestion{position:relative;padding:0 .6em;line-height:23px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:1.02em;color:#333}.autocomplete-suggestion b{font-weight:400;color:#1f8dd6}.autocomplete-suggestion.selected{background:#f0f0f0}.card{display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-webkit-flex-direction:column;-moz-box-orient:vertical;-moz-box-direction:normal;-ms-flex-direction:column;flex-direction:column;position:relative;background-color:white;-webkit-border-radius:10px;-moz-border-radius:10px;border-radius:10px;min-height:120px;margin:20px 20px 20px 20px;border-left:15px solid grey;-webkit-box-shadow:3px 3px 20px rgba(0,0,0,.514);-moz-box-shadow:3px 3px 20px rgba(0,0,0,.514);box-shadow:3px 3px 20px rgba(0,0,0,.514)}.card-title{margin-left:10px;font-weight:700}.card-subtitle{margin-left:10px}.card-body{position:absolute;width:100%}.card-text{margin-left:10px}.tBtn{width:100%;height:100%;position:absolute;top:0;left:0;opacity:0;z-index:1}#btnAdd{position:absolute;right:40px}.alertImg{width:40px;height:40px;position:absolute;z-index:0;top:10px;right:15px}.ticket{display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-webkit-flex-direction:column;-moz-box-orient:vertical;-moz-box-direction:normal;-ms-flex-direction:column;flex-direction:column;position:relative;background-color:white;-webkit-border-radius:10px;-moz-border-radius:10px;border-radius:10px;min-height:120px;margin:20px 20px 20px 20px;-webkit-box-shadow:3px 3px 20px rgba(0,0,0,.514);-moz-box-shadow:3px 3px 20px rgba(0,0,0,.514);box-shadow:3px 3px 20px rgba(0,0,0,.514)}.ticket-header{font-size:20px;font-weight:700}.ticket-body{margin:10px}hr{color:black} 
+  </style>
+
+  <link rel="manifest" href="manifest.json">
+  <!-- Add to home screen for Safari on iOS -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Ticket Viewer">
+  <link rel="apple-touch-icon" href="images/icons/icon-152x152.png">
+  <meta name="msapplication-TileImage" content="images/icons/icon-144x144.png">
+  <meta name="msapplication-TileColor" content="#454545">
+</head>
+
+<body>
+  <header class="header">
+    <h1 class="header-title">Ticket Viewer</h1>
+    <div class="inputContainer inputGroup">
+      <input type="text" id="searchBox" class="inputGroup searchBar hide" placeholder="Store Number" aria-label="Store Number">
+      <button id="clearButton" class="inputGroup button hide" aria-label="Clear Button">Clear</button>
+    </div>
+    <!-- <button id="logBtn" class="headerButton">Login</button> -->
+    <button id="fsButton" class="headerButton"></button>
+  </header>
+
+  <iframe name="authFrame" id="authFrame"></iframe>
+
+  <main class="main">
+    <div id="content">
+
+    </div>
+  </main>
+
+  <div class="loader hide">
+    <svg viewBox="0 0 32 32" width="32" height="32">
+      <circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
+    </svg>
+  </div>
+
+  <footer class="footer">
+    <div class="footerBtnGroup">
+      <button class="left footerButton" aria-label="Active">Active</button>
+      <button class="right footerButton" aria-label="Resolved">Resolved</button>
+    </div>
+  </footer>
+
+  <script src="scripts/auto-complete.min.js"></script>
+  <script src="scripts/heatapi.js"></script>
+  <script src="scripts/heatcall.js"></script>
+  <script src="scripts/main.js"></script>
+  <script src="scripts/refactor_tproc.js"></script>
+  <script src="scripts/fullscreen.js"></script>
+  <!-- <script src="scripts/toolbox.js" async></script> -->
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+
+.toolbox {
+    padding: 15px;
+    font-size: 16;
+    text-align: center;
+    height: 10px;
+    width: 110px;
+    background-color: white;
+    opacity: .3;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+    z-index: 999;
+    position: absolute;
+    display: block;
+    -webkit-border-radius: 10px;
+       -moz-border-radius: 10px;
+            border-radius: 10px;
+    margin-left: 10px;
+    top: 70px;
+    left: -100px;
+    -webkit-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+  
+
+}
+.toolbox:hover {
+    -webkit-transform: translateX(100px);
+            -moz-transform: translateX(100px);
+             -ms-transform: translateX(100px);
+              -o-transform: translateX(100px);
+         transform: translateX(100px);
+    height: 100px;
+    font-size: 16px;
+    opacity: .9;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
+}

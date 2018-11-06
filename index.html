@@ -30,13 +30,13 @@
     <h1 class="header-title">Ticket Viewer</h1>
     <div class="inputContainer inputGroup">
       <input type="text" id="searchBox" class="inputGroup searchBar hide" placeholder="Store Number" aria-label="Store Number">
-      <button id="clearButton" class="inputGroup button hide" aria-label="Clear Button">Clear</button>
+      <button id="clearButton" class="inputGroup button hide" aria-label="Clear Button" aria-labelledby="clearButton" value="clearButton">Clear</button>
     </div>
     <!-- <button id="logBtn" class="headerButton">Login</button> -->
-    <button id="fsButton" class="headerButton"></button>
+    <button id="fsButton" class="headerButton" aria-label="Full Screen Button" aria-labelledby="fsButton" value="fsButton"></button>
   </header>
 
-  <iframe name="authFrame" id="authFrame"></iframe>
+  <iframe title="Login" name="authFrame" id="authFrame"></iframe>
 
   <main class="main">
     <div id="content">
@@ -52,8 +52,8 @@
 
   <footer class="footer">
     <div class="footerBtnGroup">
-      <button class="left footerButton" aria-label="Active">Active</button>
-      <button class="right footerButton" aria-label="Resolved">Resolved</button>
+      <button class="left footerButton" aria-label="Active" aria-labelledby="Active" value="active">Active</button>
+      <button class="right footerButton" aria-label="Resolved" aria-labelledby="Resolved" value="resolved">Resolved</button>
     </div>
   </footer>
 

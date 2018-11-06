@@ -1,16 +1,16 @@
 /*jshint esversion: 6 */
 'use strict';
 
-const tProc = (function () {
-
+const tProc = (function() {
     const contents = document.getElementById('content');
     let _ticketObj = {};
+  
 
     function createTicketObjects(store, payLoad) {
         let i = 0;
         for (let c = 0; c < payLoad.data.length; c++) {
             if (payLoad.data[c].ProfileFullName === store) {
-                 _ticketObj[i] = new Ticket(
+                _ticketObj[i] = new Ticket(
                     payLoad.data[c].RecId,
                     payLoad.data[c].Category,
                     payLoad.data[c].CreatedDateTime,
@@ -20,18 +20,30 @@ const tProc = (function () {
                     payLoad.data[c].ProfileFullName,
                     payLoad.data[c].Status,
                     payLoad.data[c].Subject,
-                    payLoad.data[c].Symptom);
+                    payLoad.data[c].Symptom
+                );
                 i++;
             }
         }
         if (i === 0) {
-            alert("There are no tickets of this type for " + store);
+            alert('There are no tickets of this type for ' + store);
         }
         showCurrentCards();
     }
 
     //ticket constrcutor
-    function Ticket(RecId, Category, CreatedDateTime, IncidentNumber, Owner, Priority, ProfileFullName, Status, Subject, Symptom) {
+    function Ticket(
+        RecId,
+        Category,
+        CreatedDateTime,
+        IncidentNumber,
+        Owner,
+        Priority,
+        ProfileFullName,
+        Status,
+        Subject,
+        Symptom
+    ) {
         this.RecId = RecId;
         this.Category = Category;
         this.CreatedDateTime = CreatedDateTime;
@@ -42,7 +54,7 @@ const tProc = (function () {
         this.Status = Status;
         this.Subject = Subject;
         this.Symptom = Symptom;
-        this.createTicket = function (RecId) {
+        this.createTicket = function(RecId) {
             const p1 = document.createElement('p'),
                 p2 = document.createElement('p'),
                 p3 = document.createElement('p'),
@@ -60,21 +72,21 @@ const tProc = (function () {
                 hr = document.createElement('hr'),
                 a = document.createElement('a');
 
-            outerCard.className = "ticket";
-            h51.className = "ticket-header";
-            h51.textContent = "Ticket #" + IncidentNumber;
-            innerCard.className = "ticket-body";
-            h52.className = "ticket-title";
+            outerCard.className = 'ticket';
+            h51.className = 'ticket-header';
+            h51.textContent = 'Ticket #' + IncidentNumber;
+            innerCard.className = 'ticket-body';
+            h52.className = 'ticket-title';
             h52.textContent = ProfileFullName;
-            p3.textContent = "Category: " + Category;
-            p4.textContent = "Priority: " + Priority;
-            p5.textContent = "Status: " + Status;
-            p6.textContent = "Created On: " + CreatedDateTime;
-            p7.textContent = "Tech Assigned: " + Owner;
-            p8.textContent = "Issue: " + app.strip(Subject);
-            p9.textContent = "Description: " + app.strip(Symptom);
-            a.className = "btn btn-primary btn-block";
-            
+            p3.textContent = 'Category: ' + Category;
+            p4.textContent = 'Priority: ' + Priority;
+            p5.textContent = 'Status: ' + Status;
+            p6.textContent = 'Created On: ' + CreatedDateTime;
+            p7.textContent = 'Tech Assigned: ' + Owner;
+            p8.textContent = 'Issue: ' + app.strip(Subject);
+            p9.textContent = 'Description: ' + app.strip(Symptom);
+            a.className = 'btn btn-primary btn-block';
+
             contents.appendChild(outerCard);
             outerCard.appendChild(innerCard);
             innerCard.appendChild(h51);
@@ -89,7 +101,7 @@ const tProc = (function () {
             innerCard.appendChild(p9);
             innerCard.appendChild(a);
         };
-        this.createCard = function () {
+        this.createCard = function() {
             const card = document.createElement('div'),
                 body = document.createElement('div'),
                 title = document.createElement('p'),
@@ -99,28 +111,27 @@ const tProc = (function () {
                 p2Img = document.createElement('img'),
                 tBtn = document.createElement('button');
 
-            tBtn.addEventListener('click', function (event) {
+            tBtn.addEventListener('click', function(event) {
                 //alert(RecId);
                 tProc.showCurrentTickets(RecId);
             });
 
-
-            card.className = "card";
+            card.className = 'card';
             //card.setAttribute("id", RecId);
-            body.className = "card-body";
-            title.className = "card-title";
+            body.className = 'card-body';
+            title.className = 'card-title';
             title.textContent = Category;
-            subTitle.className = "card-subtitle capletter";
+            subTitle.className = 'card-subtitle capletter';
             subTitle.textContent = app.ts(app.strip(Subject.toLowerCase()));
-            content.className = "card-text capletter";
+            content.className = 'card-text capletter';
             content.textContent = app.ts(app.strip(Symptom.toLowerCase()));
-            p1Img.src = "images/p1.png";
-            p2Img.src = "images/p2.png";
-            p1Img.classList = "alertImg";
-            p2Img.classList = "alertImg";
-            tBtn.textContent = "Show Ticket";
-            tBtn.classList = "tBtn";
-            tBtn.setAttribute("id", RecId);
+            p1Img.src = 'images/p1.png';
+            p2Img.src = 'images/p2.png';
+            p1Img.classList = 'alertImg';
+            p2Img.classList = 'alertImg';
+            tBtn.textContent = 'Show Ticket';
+            tBtn.classList = 'tBtn';
+            tBtn.setAttribute('id', RecId);
 
             contents.appendChild(card);
             card.appendChild(body);
@@ -158,15 +169,15 @@ const tProc = (function () {
     function showCurrentCards(filter) {
         clearContents();
 
-        if (filter === "Resolved") {
+        if (filter === 'Resolved') {
             for (let i = 0; i < Object.keys(_ticketObj).length; i++) {
-                if (_ticketObj[i].Status === "Resolved" || _ticketObj[i].Status === "Closed") {
+                if (_ticketObj[i].Status === 'Resolved' || _ticketObj[i].Status === 'Closed') {
                     _ticketObj[i].createCard();
                 }
             }
         } else {
             for (let i = 0; i < Object.keys(_ticketObj).length; i++) {
-                if (_ticketObj[i].Status !== "Resolved" && _ticketObj[i].Status !== "Closed") {
+                if (_ticketObj[i].Status !== 'Resolved' && _ticketObj[i].Status !== 'Closed') {
                     _ticketObj[i].createCard();
                 }
             }
@@ -175,7 +186,7 @@ const tProc = (function () {
 
     function showCurrentTickets(RecId) {
         console.log(RecId);
-        if (RecId != "content") {
+        if (RecId != 'content') {
             clearContents();
             for (let i = 0; i < Object.keys(_ticketObj).length; i++) {
                 if (_ticketObj[i].RecId === RecId) {

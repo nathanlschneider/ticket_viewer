@@ -1,12 +1,12 @@
 {
-  "name": "Ticket Viewer",
-  "short_name": "ticketviewer",
+  "name": "Ticket Viewer v.04",
+  "short_name": "Ticket Viewer",
   "theme_color": "#454545",
   "background_color": "#454545",
   "display": "standalone",
   "orientation": "portrait",
-  "Scope": "/portal/dev/ticketviewer/v4",
-  "start_url": "/portal/dev/ticketviewer/v4/index.html",
+  "Scope": "/ticketviewer/",
+  "start_url": "/ticketviewer/index.html",
   "icons": [
     {
       "src": "images/icons/icon-72x72.png",

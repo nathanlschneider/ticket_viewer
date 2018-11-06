@@ -1,5 +1,6 @@
 const staticAssets = [
-    './',
+   
+    './index.html',
     './oauthcallback.html',
     './scripts/heatapi.js',
     './scripts/auto-complete.min.js',

@@ -260,14 +260,15 @@ button {
   -ms-user-select: none;
   user-select: none;
   outline: none;
-  -webkit-transition: all .3s ease-in-out;
+  /* -webkit-transition: all .3s ease-in-out;
   -o-transition: all .3s ease-in-out;
   -moz-transition: all .3s ease-in-out;
-  transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out; */
   -webkit-appearance: none;
 }
 
 .footerButton:focus {
+  font-weight: 700;
   background: white;
   color: rgb(92, 92, 92) !important;
 }
